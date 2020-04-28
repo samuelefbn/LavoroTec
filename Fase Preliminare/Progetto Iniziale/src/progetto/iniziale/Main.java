@@ -6,17 +6,26 @@
 
 package progetto.iniziale;
 
+
 /**
- *
- * @author menga_francesco
- */
+* @brief Classe main
+*/
 public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+		JCliente cliente = new JCliente();
+		
+		cliente.registra(nome, cognome, indirizzo, email, password, nascita, telefono);
+		cliente.aggiungiArticolo(articolo);
+		cliente.ordina();
+		
+		//Extra
+		cliente.annullaOrdine();
+		
     }
 
 }
