@@ -1,0 +1,17 @@
+package progetto.iniziale;
+
+
+/**
+* @brief classe JArticolo
+* questa classe implementa il singolo articolo della spesa
+*/
+public class JArticolo {
+
+	/* Attributi */
+    private String nomeProdotto; /*nome del prodotto*/
+	private Integer quant; /*quantità del prodotto*/
+	
+	/* Metodi */
+	public JArticolo(String nome, Integer quantita){} /*cosstruttore che crea un oggetto JArticolo*/
+	public void aggiornaArticolo(String nome, Integer quantita){} /*metodo che permette di moficare nome e/o quantità dell'articolo*/
+}
