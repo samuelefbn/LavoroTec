@@ -39,7 +39,7 @@ public class JCliente {
         punti_fedelta=0;
         preferenze_prodotti="";
         telefono=0;
-        listaSpesa= JLista();
+        listaSpesa= new JLista();
         
         
     }
