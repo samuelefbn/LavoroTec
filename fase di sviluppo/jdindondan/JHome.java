@@ -111,7 +111,11 @@ public class JHome extends javax.swing.JFrame {
 
         buttonFedelta.setBackground(new java.awt.Color(153, 255, 204));
         buttonFedelta.setText("CARTA FEDELTA");
-        buttonFedelta.setEnabled(false);
+        buttonFedelta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFedeltaActionPerformed(evt);
+            }
+        });
 
         buttonCatalogo.setBackground(new java.awt.Color(153, 255, 204));
         buttonCatalogo.setText("-> CATALOGO <-");
@@ -270,6 +274,11 @@ public class JHome extends javax.swing.JFrame {
         JPrenotazione nuova = new JPrenotazione(this,true);
         nuova.setVisible(true);
     }//GEN-LAST:event_buttonPrenotatiActionPerformed
+
+    private void buttonFedeltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFedeltaActionPerformed
+        JFrameFedelta nuovo= new JFrameFedelta();
+        nuovo.setVisible(true);
+    }//GEN-LAST:event_buttonFedeltaActionPerformed
 
     /**
      * @param args the command line arguments

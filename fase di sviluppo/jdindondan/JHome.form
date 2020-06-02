@@ -202,8 +202,10 @@
               <Color blue="cc" green="ff" red="99" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CARTA FEDELTA"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonFedeltaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCatalogo">
           <Properties>
