@@ -9,7 +9,7 @@ import java.util.Vector;
 
 /**
  *
- * @author Coso
+ * @author Pirola, Menga
  */
 public class JArticoli {
     private Vector<JArticolo> v;
@@ -20,14 +20,25 @@ public class JArticoli {
     
     public JArticoli(String jsonPath) {
         v = new Vector<JArticolo>();
-        //simula import da json
+        
+        /** simula import da json
         v.add(new JArticolo("Carote", "Ottime carote arancioni", "874356263", 1.99f));
         v.add(new JArticolo("Patate", "Ottime patate gialle", "4358765234", 0.99f));
         v.add(new JArticolo("Aspirapolvere", "Ottimo aspirapolvere verde", "133252346", 99.99f));
+        */
     }
     
     public Vector<JArticolo> getCopy() {
         return v;
+    }
+    
+    public void AddArticolo(JArticolo nuovo){
+        v.add(nuovo);
+    }
+    
+    public void RimuoviArticolo(Integer index){
+        if(index>=0 && index < v.size()-1)
+            v.removeElementAt(index);  
     }
     
 }
