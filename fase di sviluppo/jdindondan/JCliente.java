@@ -21,7 +21,7 @@ public class JCliente {
     private String email;
     private String password;
     private Date nascita;
-    private JFedelta punti_fedelta;
+    private JCartaFedelta punti_fedelta;
     private JArticoli preferenze_prodotti;
     private String telefono;
     private JLista listaSpesa;
@@ -37,7 +37,7 @@ public class JCliente {
         email="";
         password="";
         nascita= new Date();
-        punti_fedelta=JFedelta();
+        punti_fedelta=JCartaFedelta();
         preferenze_prodotti=JArticoli();
         telefono="";
         listaSpesa= new JLista();
@@ -104,11 +104,11 @@ public class JCliente {
         this.nascita = nascita;
     }
 
-    public JFedelta getPunti_fedelta() {
+    public JCartaFedelta getPunti_fedelta() {
         return punti_fedelta;
     }
 
-    public void setPunti_fedelta(JFedelta punti_fedelta) {
+    public void setPunti_fedelta(JCartaFedelta punti_fedelta) {
         this.punti_fedelta = punti_fedelta;
     }
 
@@ -137,3 +137,5 @@ public class JCliente {
     }
 
 }
+
+
