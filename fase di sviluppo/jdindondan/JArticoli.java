@@ -9,7 +9,7 @@ import java.util.Vector;
 
 /**
  *
- * @author Coso, Menga
+ * @author Pirola, Menga
  */
 public class JArticoli {
     private Vector<JArticolo> v;
