@@ -21,9 +21,9 @@ public class JCliente {
     private String email;
     private String password;
     private Date nascita;
-    private Integer punti_fedelta;
-    private String preferenze_prodotti;
-    private Integer telefono;
+    private JCartaFedelta punti_fedelta;
+    private JArticoli preferenze_prodotti;
+    private String telefono;
     private JLista listaSpesa;
 
     /* Metodi */
@@ -37,15 +37,15 @@ public class JCliente {
         email="";
         password="";
         nascita= new Date();
-        punti_fedelta=0;
-        preferenze_prodotti="";
-        telefono=0;
+        punti_fedelta=JCartaFedelta();
+        preferenze_prodotti=JArticoli();
+        telefono="";
         listaSpesa= new JLista();
         
         
     }
 
-    public JCliente(String nome, String cognome, String email, String password, Date nascita, String preferenze_prodotti, Integer telefono, JLista listaSpesa) {
+    public JCliente(String nome, String cognome, String email, String password, Date nascita, JArticoli preferenze_prodotti, String telefono, JLista listaSpesa) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -104,27 +104,27 @@ public class JCliente {
         this.nascita = nascita;
     }
 
-    public Integer getPunti_fedelta() {
+    public JCartaFedelta getPunti_fedelta() {
         return punti_fedelta;
     }
 
-    public void setPunti_fedelta(Integer punti_fedelta) {
+    public void setPunti_fedelta(JCartaFedelta punti_fedelta) {
         this.punti_fedelta = punti_fedelta;
     }
 
-    public String getPreferenze_prodotti() {
+    public JArticoli getPreferenze_prodotti() {
         return preferenze_prodotti;
     }
 
-    public void setPreferenze_prodotti(String preferenze_prodotti) {
+    public void setPreferenze_prodotti(JArticoli preferenze_prodotti) {
         this.preferenze_prodotti = preferenze_prodotti;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -137,3 +137,5 @@ public class JCliente {
     }
 
 }
+
+
