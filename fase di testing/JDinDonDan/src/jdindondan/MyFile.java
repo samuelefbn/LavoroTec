@@ -55,14 +55,17 @@ public class MyFile {
         return ls;
     }
     
+    //return oggetto contenente la stringa cercata
     public String findString(int attributeNumber, String toSearch) throws IOException {
         String[] s = null;
+        String output = "";
         for (int i = 0; i <= lines; i++) {
-            s = reader.readLine().split(",");
+            output = reader.readLine();
+            s = output.split(",");
             if (s[attributeNumber].equals(toSearch))
                 i = lines + 1;
         }
         reader.close();
-        return s[attributeNumber];
+        return output;
     }
 }
