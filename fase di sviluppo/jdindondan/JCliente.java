@@ -24,7 +24,6 @@ public class JCliente {
     private JCartaFedelta punti_fedelta;
     private JArticoli preferenze_prodotti;
     private String telefono;
-    private JLista listaSpesa;
 
     /* Metodi */
     /**
@@ -40,12 +39,11 @@ public class JCliente {
         punti_fedelta=JCartaFedelta();
         preferenze_prodotti=JArticoli();
         telefono="";
-        listaSpesa= new JLista();
         
         
     }
 
-    public JCliente(String nome, String cognome, String email, String password, Date nascita, JArticoli preferenze_prodotti, String telefono, JLista listaSpesa) {
+    public JCliente(String nome, String cognome, String email, String password, Date nascita, JArticoli preferenze_prodotti, String telefono) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -53,7 +51,6 @@ public class JCliente {
         this.nascita = nascita;
         this.preferenze_prodotti = preferenze_prodotti;
         this.telefono = telefono;
-        this.listaSpesa = listaSpesa;
     }
 
     public String getNome() {
@@ -126,14 +123,6 @@ public class JCliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public JLista getListaSpesa() {
-        return listaSpesa;
-    }
-
-    public void setListaSpesa(JLista listaSpesa) {
-        this.listaSpesa = listaSpesa;
     }
 
 }
