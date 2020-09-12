@@ -51,6 +51,18 @@ public class MyFile {
         for (int i = 0; i <= lines; i++) {
             ls.add(reader.readLine());
         }
+        reader.close();
         return ls;
+    }
+    
+    public String findString(int attributeNumber, String toSearch) throws IOException {
+        String[] s = null;
+        for (int i = 0; i <= lines; i++) {
+            s = reader.readLine().split(",");
+            if (s[attributeNumber].equals(toSearch))
+                i = lines + 1;
+        }
+        reader.close();
+        return s[attributeNumber];
     }
 }
