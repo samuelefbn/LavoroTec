@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Coso
+ * @author Pirola
  */
 public class JSlotTempo {
     private JCliente clientePrenotato;

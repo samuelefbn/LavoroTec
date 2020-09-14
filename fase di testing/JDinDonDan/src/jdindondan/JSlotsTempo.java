@@ -10,7 +10,7 @@ import java.util.Vector;
 
 /**
  *
- * @author Coso
+ * @author Pirola
  */
 public class JSlotsTempo {
     private Vector<JSlotTempo> v;

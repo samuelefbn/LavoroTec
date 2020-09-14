@@ -20,7 +20,7 @@ public class JHome extends javax.swing.JFrame {
         this.setVisible(true);
         this.setResizable(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -276,7 +276,7 @@ public class JHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPrenotatiActionPerformed
 
     private void buttonFedeltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFedeltaActionPerformed
-        JFrameFedelta nuovo= new JFrameFedelta();
+        JVisualizzaCarta nuovo= new JVisualizzaCarta();
         nuovo.setVisible(true);
     }//GEN-LAST:event_buttonFedeltaActionPerformed
 
