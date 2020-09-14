@@ -10,7 +10,6 @@ package jdindondan;
  * @author Coso
  */
 public class JDialogEntra extends javax.swing.JDialog {
-
     /**
      * Creates new form JDialogEntra
      */

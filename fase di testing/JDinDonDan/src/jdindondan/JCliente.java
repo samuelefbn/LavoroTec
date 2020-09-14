@@ -1,4 +1,4 @@
-package progetto.iniziale;
+package jdindondan;
 
 import java.util.Date;
 
@@ -7,7 +7,6 @@ import java.util.Date;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Gabriele
@@ -24,37 +23,49 @@ public class JCliente {
     private JCartaFedelta punti_fedelta;
     private JArticoli preferenze_prodotti;
     private String telefono;
-    private JLista listaSpesa;
 
     /* Metodi */
     /**
      * @brief costruttore senza parametri
      */
     public JCliente() {
-        nome="";
-        cognome="";
-        indirizzo="";
-        email="";
-        password="";
-        nascita= new Date();
-        punti_fedelta=JCartaFedelta();
-        preferenze_prodotti=JArticoli();
-        telefono="";
-        listaSpesa= new JLista();
-        
-        
+        nome = "";
+        cognome = "";
+        indirizzo = "";
+        email = "";
+        password = "";
+        nascita = new Date();
+        punti_fedelta = new JCartaFedelta();
+        preferenze_prodotti = new JArticoli();
+        telefono = "";
+
     }
 
-    public JCliente(String nome, String cognome, String email, String password, Date nascita, JArticoli preferenze_prodotti, String telefono, JLista listaSpesa) {
+    public JCliente(String nome, String cognome, String email, String password, Date nascita, JArticoli preferenze_prodotti, String telefono) {
         this.nome = nome;
         this.cognome = cognome;
+        indirizzo = "";
         this.email = email;
         this.password = password;
         this.nascita = nascita;
+        punti_fedelta = new JCartaFedelta(nome, cognome);
         this.preferenze_prodotti = preferenze_prodotti;
         this.telefono = telefono;
-        this.listaSpesa = listaSpesa;
     }
+
+    public JCliente(String nome, String cognome, String email, String password, Date nascita, JCartaFedelta punti_fedelta, JArticoli preferenze_prodotti, String telefono) {
+        this.nome = nome;
+        this.cognome = cognome;
+        indirizzo = "";
+        this.email = email;
+        this.password = password;
+        this.nascita = nascita;
+        this.punti_fedelta = punti_fedelta;
+        this.preferenze_prodotti = preferenze_prodotti;
+        this.telefono = telefono;
+    }
+    
+    
 
     public String getNome() {
         return nome;
@@ -127,15 +138,27 @@ public class JCliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public JLista getListaSpesa() {
-        return listaSpesa;
-    }
-
-    public void setListaSpesa(JLista listaSpesa) {
-        this.listaSpesa = listaSpesa;
+    
+    public String toString() {
+        String s = "";
+        
+        s += nome;
+        s += ",";
+        s += cognome;
+        s += ",";
+        s += indirizzo;
+        s += ",";
+        s += email;
+        s += ",";
+        s += password;
+        s += ",";
+        s += nascita.toString();
+        s += ",";
+        s += punti_fedelta.getCodice();
+        s += ",";
+        s += telefono;
+        
+        return s;
     }
 
 }
-
-

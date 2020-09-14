@@ -11,6 +11,7 @@ package jdindondan;
  */
 public class JLoginForm extends javax.swing.JFrame {
 
+    public String username, password;
     /**
      * Creates new form JLoginForm
      */
@@ -18,6 +19,8 @@ public class JLoginForm extends javax.swing.JFrame {
         initComponents();
         this.setSize(400, 150);
         this.setResizable(false);
+        username = "";
+        password = "";
     }
 
     /**
@@ -47,9 +50,6 @@ public class JLoginForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(153, 255, 255));
         jLabel2.setText("Password");
 
-        jTextField1.setText("Username");
-
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -133,7 +133,7 @@ public class JLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
