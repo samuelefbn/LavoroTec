@@ -51,6 +51,15 @@ public class JCartaFedelta {
         Cognome = "";
         codice = "";
     }
+    
+    public JCartaFedelta(String csv) {
+        fileCarte = new MyFile("src/jdindondan/filecsv/fedelta.csv");
+        String[] attr = csv.split(",");
+        punti = Integer.parseInt(attr[0]);
+        Nome = attr[1];
+        Cognome = attr[2];
+        codice = attr[3];
+    }
 
     public Integer getPunti() {
         return punti;

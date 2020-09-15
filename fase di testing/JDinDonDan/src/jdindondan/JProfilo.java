@@ -16,6 +16,8 @@ public class JProfilo extends javax.swing.JFrame {
      */
     public JProfilo() {
         initComponents();
+        jTextField1.setText(Global.clienteAttuale.getNome());
+        jTextField2.setText(Global.clienteAttuale.getEmail());
     }
 
     /**

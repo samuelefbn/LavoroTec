@@ -8,8 +8,9 @@ package jdindondan;
 /**
  *
  * @author Piro
- * mi scusi veramente tanto prof, ma non sapevo come passare il JCliente dal login se non con una variabile globale.
+ * mi scusi veramente tanto prof
  */
 public class Global {
     public static JCliente clienteAttuale;
+    public static MyFile fileClienti = new MyFile("src/jdindondan/filecsv/clienti.csv");
 }

@@ -1,6 +1,11 @@
 package jdindondan;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +25,7 @@ public class JCliente {
     private String email;
     private String password;
     private Date nascita;
-    private JCartaFedelta punti_fedelta;
+    private JCartaFedelta carta_fedelta;
     private JArticoli preferenze_prodotti;
     private String telefono;
 
@@ -35,7 +40,7 @@ public class JCliente {
         email = "";
         password = "";
         nascita = new Date();
-        punti_fedelta = new JCartaFedelta();
+        carta_fedelta = new JCartaFedelta();
         preferenze_prodotti = new JArticoli();
         telefono = "";
 
@@ -48,21 +53,44 @@ public class JCliente {
         this.email = email;
         this.password = password;
         this.nascita = nascita;
-        punti_fedelta = new JCartaFedelta(nome, cognome);
+        carta_fedelta = new JCartaFedelta(nome, cognome);
         this.preferenze_prodotti = preferenze_prodotti;
         this.telefono = telefono;
     }
 
-    public JCliente(String nome, String cognome, String email, String password, Date nascita, JCartaFedelta punti_fedelta, JArticoli preferenze_prodotti, String telefono) {
+    public JCliente(String nome, String cognome, String email, String password, Date nascita, JCartaFedelta carta_fedelta, JArticoli preferenze_prodotti, String telefono) {
         this.nome = nome;
         this.cognome = cognome;
         indirizzo = "";
         this.email = email;
         this.password = password;
         this.nascita = nascita;
-        this.punti_fedelta = punti_fedelta;
+        this.carta_fedelta = carta_fedelta;
         this.preferenze_prodotti = preferenze_prodotti;
         this.telefono = telefono;
+    }
+    
+    public JCliente(String csv) {
+        MyFile fileCarte = new MyFile("src/jdindondan/filecsv/fedelta.csv");
+        String[] attr = csv.split(",");
+        nome = attr[0];
+        cognome = attr[1];
+        indirizzo = attr[2];
+        email = attr[3];
+        password = attr[4];
+        try {
+            this.nascita = new SimpleDateFormat().parse(attr[5]);
+        } catch (ParseException ex) {
+            Logger.getLogger(JCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            String carta = fileCarte.findString(3, attr[6]);
+            carta_fedelta = new JCartaFedelta(carta);
+        } catch (IOException ex) {
+            Logger.getLogger(JCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //preferenze_prodotti = attr[7]; da fare: jarticoli da csv
+        telefono = attr[8];
     }
     
     
@@ -116,11 +144,11 @@ public class JCliente {
     }
 
     public JCartaFedelta getPunti_fedelta() {
-        return punti_fedelta;
+        return carta_fedelta;
     }
 
     public void setPunti_fedelta(JCartaFedelta punti_fedelta) {
-        this.punti_fedelta = punti_fedelta;
+        this.carta_fedelta = punti_fedelta;
     }
 
     public JArticoli getPreferenze_prodotti() {
@@ -154,7 +182,7 @@ public class JCliente {
         s += ",";
         s += nascita.toString();
         s += ",";
-        s += punti_fedelta.getCodice();
+        s += carta_fedelta.getCodice();
         s += ",";
         s += telefono;
         
