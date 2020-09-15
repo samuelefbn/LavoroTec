@@ -34,7 +34,7 @@ public class JCliente {
      * @brief costruttore senza parametri
      */
     public JCliente() {
-        nome = "";
+        nome = "Guest";
         cognome = "";
         indirizzo = "";
         email = "";

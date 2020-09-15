@@ -5,7 +5,12 @@
  */
 package jdindondan;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,6 +49,29 @@ public class JSlotTempo {
         this.clientePrenotato = clientePrenotato;
         this.dataOraInizio = dataOraInizio;
         this.durata = durata;
+    }
+    
+    public JSlotTempo(String csv) {
+        String[] attr = csv.split(",");
+        try {
+            clientePrenotato = new JCliente(Global.fileClienti.findString(0, attr[0]));
+        } catch (IOException ex) {
+            Logger.getLogger(JSlotTempo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            dataOraInizio = new SimpleDateFormat().parse(attr[1]);
+        } catch (ParseException ex) {
+            Logger.getLogger(JSlotTempo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        durata = Float.parseFloat(attr[2]);
+    }
+    
+    public String toString() {
+        return clientePrenotato.getEmail() + "," + dataOraInizio.toString() + "," + durata.toString();
+    }
+    
+    public Date getDataOraFine() {
+        return new Date(dataOraInizio.getTime() + durata.longValue() * 60 * 1000);
     }
 
 }

@@ -23,9 +23,9 @@ import java.util.logging.Logger;
  * @author Coso
  */
 public class MyFile {
-    BufferedReader reader;
-    BufferedWriter writer;
-    String filename;
+    private BufferedReader reader;
+    private BufferedWriter writer;
+    private String filename;
     
     public MyFile(String filename) {
         try {

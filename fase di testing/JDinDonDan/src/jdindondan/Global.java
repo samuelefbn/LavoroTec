@@ -11,6 +11,7 @@ package jdindondan;
  * mi scusi veramente tanto prof
  */
 public class Global {
-    public static JCliente clienteAttuale;
+    public static JCliente clienteAttuale = new JCliente();
     public static MyFile fileClienti = new MyFile("src/jdindondan/filecsv/clienti.csv");
+    public static MyFile fileSlot = new MyFile("src/jdindondan/filecsv/slottempo.csv");
 }
