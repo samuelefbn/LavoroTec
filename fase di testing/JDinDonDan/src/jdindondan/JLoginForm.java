@@ -5,13 +5,17 @@
  */
 package jdindondan;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Coso
  */
 public class JLoginForm extends javax.swing.JFrame {
 
-    public String username, password;
+    public String email, password;
     /**
      * Creates new form JLoginForm
      */
@@ -19,7 +23,7 @@ public class JLoginForm extends javax.swing.JFrame {
         initComponents();
         this.setSize(400, 150);
         this.setResizable(false);
-        username = "";
+        email = "";
         password = "";
     }
 
@@ -45,7 +49,7 @@ public class JLoginForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
         jLabel1.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel1.setText("Username");
+        jLabel1.setText("Email");
 
         jLabel2.setForeground(new java.awt.Color(153, 255, 255));
         jLabel2.setText("Password");
@@ -81,14 +85,12 @@ public class JLoginForm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(jButton1)
@@ -133,7 +135,18 @@ public class JLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        email = jTextField1.getText();
+        password = jPasswordField1.getText();
         
+        String s = "";
+        try {
+            s = Global.fileClienti.findString(3, email);
+        } catch (IOException ex) {
+            Logger.getLogger(JLoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String[] attr = s.split(",");
+        if (attr[4].equals(password))
+            Global.clienteAttuale = new JCliente(s);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
